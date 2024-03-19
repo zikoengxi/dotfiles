@@ -11,6 +11,7 @@ By managing my dotfiles, I can easily set up a new development environment on an
 ### Features
 
 - Support multiple OS: macOS, Debian, Ubuntu.
+- Package Manager: Homebrew(macOS), Apt(Debian/Ubuntu).
 
 ## Prerequisites
 

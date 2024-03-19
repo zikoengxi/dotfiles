@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+{{ if eq .chezmoi.os "linux" }}
+
+set -eufo pipefail
+{{- $sudo := "sudo " }}
+{{- if eq .chezmoi.username "root" }}
+{{-   $sudo = "" }}
+{{- end }}
+
+{{- if eq .chezmoi.osRelease.id "debian" "ubuntu" }}
+{{- $packages := list
+  "build-essential"
+  "curl"
+  "gawk"
+  "git"
+  "htop"
+  "openssh-server"
+  "tldr"
+  "trash-cli"
+}}
+{{ $sudo }}apt-get update -qq
+{{ $sudo }}apt-get install -y -qq --no-install-recommends {{ $packages | join " " }}
+{{- end }}
+
+{{- end }}
