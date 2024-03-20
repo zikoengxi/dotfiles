@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+# Git
+{{- if .git.signing.enable }}
+if [[ ! -f "{{ .git.signing.key }}" ]]; then
+  echo -e "Error: {{ .git.signing.key }} not exist!"
+  exit 1
+fi
+{{- end }}
