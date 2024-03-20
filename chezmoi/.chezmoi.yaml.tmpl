@@ -1,0 +1,19 @@
+{{- $name := "zikoengxi" }}
+{{- $email := "i@zikoengxi.com" }}
+{{- $enableGitSigning := false }}
+
+{{- if env "CHEZMOI_PROMPT" }}
+{{-   $name = promptString "What is your name" $name }}
+{{-   $email = promptString "What is your email address" $email }}
+{{-   $enableGitSigning = promptBool "Enable git signing" $enableGitSigning }}
+{{- end -}}
+
+data:
+  user:
+    name: {{ $name | quote }}
+    email: {{ $email | quote }}
+
+  git:
+    signing:
+      enable: {{ $enableGitSigning }}
+      key: {{ (joinPath $.chezmoi.homeDir ".ssh/id_git.pub") | quote }}
