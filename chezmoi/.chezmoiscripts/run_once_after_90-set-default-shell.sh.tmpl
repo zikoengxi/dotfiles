@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+{{- $sudo := "sudo " }}
+{{- if eq .chezmoi.username "root" }}
+{{-   $sudo = "" }}
+{{- end }}
+
+# Get executable path of zsh
+if [[ $OSTYPE = darwin* ]]; then
+  if [[ -f "/usr/local/bin/brew" ]]; then
+    # For Intel macOS
+    eval "$(/usr/local/bin/brew shellenv)"
+  elif [[ -f "/opt/homebrew/bin/brew" ]]; then
+    # For ARM macOS
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+  fi
+fi
+
+zsh_exec=$(which zsh)
+[ ! -x $zsh_exec ] && exit 1
+
+# Add zsh to /etc/shells
+grep -qF ${zsh_exec} /etc/shells || echo "${zsh_exec}" | sudo tee -a /etc/shells
+
+# Set zsh as default shell
+{{ $sudo }}chsh -s ${zsh_exec} $USER
+
+echo -e "Successfully set zsh as default shell!"

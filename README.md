@@ -12,6 +12,7 @@ By managing my dotfiles, I can easily set up a new development environment on an
 
 - Support multiple OS: macOS, Debian, Ubuntu.
 - Package Manager: Homebrew(macOS), Apt(Debian/Ubuntu).
+- Shell: Zsh
 
 ## Prerequisites
 
