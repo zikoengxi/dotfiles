@@ -17,6 +17,10 @@ fi
 brew bundle --no-lock --file=/dev/stdin <<EOF
 # https://github.com/Homebrew/homebrew-bundle
 
+# 'brew tap'
+tap "homebrew/cask-fonts"
+tap "homebrew/cask-versions"
+
 # 'brew install'
 brew "coreutils"
 brew "gawk"
@@ -30,5 +34,23 @@ brew "sqlite3"
 brew "xz"
 brew "zlib"
 brew "tcl-tk"
+
+# 'brew install --cask'
+cask "appcleaner"
+cask "calibre"
+cask "firefox"
+cask "fliqlo"
+cask "font-ubuntu-mono"
+cask "font-ubuntu-mono-nerd-font"
+cask "iina"
+cask "iterm2"
+cask "maczip"
+cask "obsidian"
+cask "orbstack"
+cask "raycast"
+cask "snipaste"
+cask "spotify"
+cask "stats"
+cask "visual-studio-code"
 EOF
 {{- end }}
