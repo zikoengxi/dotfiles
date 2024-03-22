@@ -32,6 +32,20 @@ zinit wait lucid for \
     OMZP::globalias \
     OMZP::history
 
+# SSH agent
+identities=()
+filenames=(id_ed25519 id_git)
+for filename in ${filenames[@]}; do
+  if [[ -f ${HOME}/.ssh/${filename} ]]; then
+    identities+=(${filename})
+  fi
+done
+zstyle :omz:plugins:ssh-agent identities ${identities}
+zstyle :omz:plugins:ssh-agent lifetime 168h
+zstyle :omz:plugins:ssh-agent quiet yes
+zinit ice wait lucid atinit'SHORT_HOST=$HOST'
+zinit snippet OMZP::ssh-agent
+
 # Agkozak/zsh-z
 zinit ice wait lucid atinit'ZSHZ_DATA=${ZSH_CACHE_HOME}/.z'
 zinit light agkozak/zsh-z
