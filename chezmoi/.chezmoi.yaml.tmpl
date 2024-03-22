@@ -8,7 +8,7 @@
 
 {{- $enableGitSigning := false }}
 {{- $gitSigningKey := (joinPath $.chezmoi.homeDir ".ssh/id_git.pub") }}
-{{- if eq (eq .chezmoi.username $name) ($gitSigningKey | lstat | not | not) | }}
+{{- if and (eq .chezmoi.username $name) ($gitSigningKey | lstat | not | not) | }}
 {{-   $enableGitSigning = true }}
 {{- end -}}
 
