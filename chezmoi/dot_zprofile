@@ -1,0 +1,30 @@
+#!/usr/bin/env zsh
+
+# =========================================================== #
+# Package Manager                                             #
+# =========================================================== #
+
+# Homebrew
+# =========================================================== #
+
+if [[ $OSTYPE = darwin* ]]; then
+  if [[ -f "/usr/local/bin/brew" ]]; then
+    # For Intel macOS
+    eval "$(/usr/local/bin/brew shellenv)"
+  elif [[ -f "/opt/homebrew/bin/brew" ]]; then
+    # For ARM macOS
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+  fi
+
+  if command -v "brew" >/dev/null 2>&1; then
+    # https://docs.brew.sh/Manpage#environment
+    export HOMEBREW_AUTOREMOVE=1
+    export HOMEBREW_NO_ANALYTICS=1
+    export HOMEBREW_NO_AUTO_UPDATE=1
+
+    # Coreutils
+    if [[ -d "${HOMEBREW_PREFIX}/opt/coreutils" ]]; then
+      export PATH="${HOMEBREW_PREFIX}/opt/coreutils/libexec/gnubin:$PATH"
+    fi
+  fi
+fi

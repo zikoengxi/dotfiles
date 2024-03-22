@@ -1,0 +1,43 @@
+{{ if eq .chezmoi.os "darwin" }}
+.config/zsh/completions/_diskutil:
+  type: file
+  url: https://raw.githubusercontent.com/clarketm/zsh-completions/master/src/_diskutil
+  refreshPeriod: 168h
+{{ end -}}
+
+.config/zsh/completions/_git:
+  type: file
+  url: https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.zsh
+  refreshPeriod: 168h
+.config/zsh/completions/_chezmoi:
+  type: file
+  url: https://raw.githubusercontent.com/twpayne/chezmoi/master/completions/chezmoi.zsh
+  refreshPeriod: 168h
+.config/zsh/completions/_direnv:
+  type: file
+  url: https://raw.githubusercontent.com/zsh-users/zsh-completions/master/src/_direnv
+  refreshPeriod: 168h
+.config/zsh/completions/_pip:
+  type: file
+  url: https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/pip/_pip
+  refreshPeriod: 168h
+.config/zsh/completions/_poetry:
+  type: file
+  url: https://raw.githubusercontent.com/clarketm/zsh-completions/master/src/_poetry
+  refreshPeriod: 168h
+.config/zsh/completions/_pre-commit:
+  type: file
+  url: https://raw.githubusercontent.com/zsh-users/zsh-completions/master/src/_pre-commit
+  refreshPeriod: 168h
+.config/zsh/completions/_node:
+  type: file
+  url: https://raw.githubusercontent.com/zsh-users/zsh-completions/master/src/_node
+  refreshPeriod: 168h
+.config/zsh/completions/_yarn:
+  type: file
+  url: https://raw.githubusercontent.com/zsh-users/zsh-completions/master/src/_yarn
+  refreshPeriod: 168h
+.config/zsh/completions/_go:
+  type: file
+  url: https://raw.githubusercontent.com/zsh-users/zsh-completions/master/src/_golang
+  refreshPeriod: 168h

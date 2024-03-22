@@ -1,0 +1,4 @@
+pre-commit==3.6.2
+poetry==1.8.2
+tldr==3.2.0
+trash-cli[completion]==0.23.11.10
