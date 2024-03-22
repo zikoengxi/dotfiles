@@ -87,7 +87,8 @@ fi
 # Chezmoi
 # =========================================================== #
 
-zinit ice wait lucid as'program' from'gh-r' bpick'chezmoi*.tar.gz' pick'chezmoi'
+zinit ice wait lucid as'program' from'gh-r' bpick'chezmoi*.tar.gz' \
+  atclone'./chezmoi completion zsh > _chezmoi' atpull'%atclone' pick'chezmoi'
 zinit light twpayne/chezmoi
 
 # Git
@@ -100,8 +101,52 @@ zinit wait lucid for \
     OMZP::gitignore
 
 # Lazygit
-zinit ice wait lucid as'program' from'gh-r' bpick'lazygit*' pick"lazygit"
+zinit ice wait lucid nocompletions as'program' from'gh-r' bpick'lazygit*' pick'lazygit'
 zinit light jesseduffield/lazygit
+
+# Rclone
+# =========================================================== #
+
+zinit ice wait lucid as'program' from'gh-r' bpick'rclone*' mv'rclone* -> rclone' \
+  atclone'./rclone/rclone completion zsh - > _rclone' atpull'%atclone' pick'rclone/rclone'
+zinit light rclone/rclone
+
+# ripgrep
+# =========================================================== #
+
+zinit ice wait lucid as'program' from'gh-r' bpick'ripgrep*' mv'ripgrep* -> ripgrep' pick'ripgrep/rg'
+zinit light BurntSushi/ripgrep
+
+# jq
+# =========================================================== #
+
+zinit ice wait lucid as'program' from'gh-r' bpick'jq*' mv'jq* -> jq' pick'jq'
+zinit light jqlang/jq
+
+# yq
+# =========================================================== #
+
+zinit ice wait lucid as'program' from'gh-r' bpick'yq*' mv'yq* -> yq' \
+  atclone'./yq shell-completion zsh > _yq' atpull'%atclone' pick'yq'
+zinit light mikefarah/yq
+
+# go-task
+# =========================================================== #
+
+zinit ice wait lucid as'program' from'gh-r' bpick'task*' pick'task'
+zinit light go-task/task
+
+# age
+# =========================================================== #
+
+zinit ice wait lucid nocompletions as'program' from'gh-r' bpick'age*' pick'age/age*'
+zinit light FiloSottile/age
+
+# sops
+# =========================================================== #
+
+zinit ice wait lucid nocompletions as'program' from'gh-r' bpick'sops*' mv'sops* -> sops' pick'sops'
+zinit light getsops/sops
 
 # Direnv
 # =========================================================== #

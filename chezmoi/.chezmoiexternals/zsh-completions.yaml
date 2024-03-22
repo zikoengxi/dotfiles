@@ -3,12 +3,12 @@
   type: file
   url: https://raw.githubusercontent.com/clarketm/zsh-completions/master/src/_diskutil
   refreshPeriod: 168h
+.config/zsh/completions/_xcode-select:
+  type: file
+  url: https://raw.githubusercontent.com/clarketm/zsh-completions/master/src/_xcode-select
+  refreshPeriod: 168h
 {{ end -}}
 
-.config/zsh/completions/_chezmoi:
-  type: file
-  url: https://raw.githubusercontent.com/twpayne/chezmoi/master/completions/chezmoi.zsh
-  refreshPeriod: 168h
 .config/zsh/completions/_direnv:
   type: file
   url: https://raw.githubusercontent.com/zsh-users/zsh-completions/master/src/_direnv
@@ -28,10 +28,6 @@
 .config/zsh/completions/_node:
   type: file
   url: https://raw.githubusercontent.com/zsh-users/zsh-completions/master/src/_node
-  refreshPeriod: 168h
-.config/zsh/completions/_yarn:
-  type: file
-  url: https://raw.githubusercontent.com/zsh-users/zsh-completions/master/src/_yarn
   refreshPeriod: 168h
 .config/zsh/completions/_go:
   type: file
