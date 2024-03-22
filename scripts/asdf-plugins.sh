@@ -26,6 +26,9 @@ asdf global nodejs ${NODEJS_VERSION}
 # Upgrade npm to latest
 npm install -g npm
 
+# Use pnpm as default package manager
+corepack enable pnpm
+
 # Golang
 # =========================================================== #
 
