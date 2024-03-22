@@ -29,3 +29,8 @@ source ${ZSH_HOME}/functions.zsh
 source ${ZSH_HOME}/configs/core.zsh
 source ${ZSH_HOME}/configs/general.zsh
 source ${ZSH_HOME}/configs/zinit.zsh
+
+# Local configuration
+if [[ -f "${HOME}/.zshrc.local" ]]; then
+  source "${HOME}/.zshrc.local"
+fi
