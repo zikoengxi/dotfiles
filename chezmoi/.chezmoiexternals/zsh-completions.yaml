@@ -5,10 +5,6 @@
   refreshPeriod: 168h
 {{ end -}}
 
-.config/zsh/completions/_git:
-  type: file
-  url: https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.zsh
-  refreshPeriod: 168h
 .config/zsh/completions/_chezmoi:
   type: file
   url: https://raw.githubusercontent.com/twpayne/chezmoi/master/completions/chezmoi.zsh

@@ -49,10 +49,12 @@ zinit ice wait lucid
 zinit light hlissner/zsh-autopair
 
 # Zsh-completions
-zinit ice wait lucid as'program' id-as'zsh-completions' run-atpull atpull'
+zinit ice wait lucid as'program' id-as'zsh-completions' \
+  atclone'
     mkdir -p ./completions
     cp -f ${ZSH_HOME}/completions/* ./completions/
-    zinit creinstall -q .'
+    zinit creinstall -q .
+  ' run-atpull atpull'%atclone'
 zinit light zdharma-continuum/null
 
 # Theme: ys
