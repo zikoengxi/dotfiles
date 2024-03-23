@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-{{ if (eq .chezmoi.os "darwin") }}
+{{ if .os.is_macosx }}
 
 # Install Homebrew if it's not already installed.
 if ! command -v brew >/dev/null 2>&1; then
@@ -8,5 +8,4 @@ if ! command -v brew >/dev/null 2>&1; then
 fi
 
 echo -e "Homebrew is installed."
-
 {{- end }}

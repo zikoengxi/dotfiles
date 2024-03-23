@@ -25,7 +25,7 @@ script_dir="$(cd -P -- "$(dirname -- "$(command -v -- "$0")")" && pwd -P)"
 
 set -- init --apply --source="${script_dir}" "$@"
 
-if [ -n "${CHEZMOI_DEBUG-}" ]; then
+if [ -n "${DOTFILES_DEBUG-}" ]; then
   set -- "$@" --debug
 fi
 

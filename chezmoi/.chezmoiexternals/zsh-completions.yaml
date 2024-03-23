@@ -1,4 +1,4 @@
-{{ if eq .chezmoi.os "darwin" }}
+{{ if .os.is_macosx }}
 .config/zsh/completions/_diskutil:
   type: file
   url: https://raw.githubusercontent.com/clarketm/zsh-completions/master/src/_diskutil

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-{{ if eq .chezmoi.os "darwin" }}
+{{ if .os.is_macosx }}
 
 if [[ -f "/usr/local/bin/brew" ]]; then
   # For Intel macOS

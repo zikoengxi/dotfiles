@@ -1,18 +1,24 @@
 {{- $name := "zikoengxi" }}
 {{- $email := "i@zikoengxi.com" }}
 
-{{- if env "CHEZMOI_PROMPT" }}
+{{- if (env "DOTFILES_PROMPT") }}
 {{-   $name = promptString "What is your name" $name }}
 {{-   $email = promptString "What is your email address" $email }}
 {{- end -}}
 
 {{- $enableGitSigning := false }}
 {{- $gitSigningKey := (joinPath $.chezmoi.homeDir ".ssh/id_git.pub") }}
-{{- if and (eq .chezmoi.username $name) ($gitSigningKey | lstat | not | not) | }}
+{{- if (eq .chezmoi.username $name) }}
 {{-   $enableGitSigning = true }}
 {{- end -}}
 
 data:
+  os:
+    is_macosx: {{ (eq .chezmoi.os "darwin" ) }}
+    is_linux: {{ (eq .chezmoi.os "linux") }}
+    is_debian: {{ and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "debian" ) }}
+    is_ubuntu: {{ and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "ubuntu" ) }}
+
   user:
     name: {{ $name | quote }}
     email: {{ $email | quote }}
