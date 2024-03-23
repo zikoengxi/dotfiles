@@ -21,14 +21,16 @@ export PATH="${XDG_BIN_HOME}:$PATH"
 
 export ZSH_CACHE_HOME="${XDG_CACHE_HOME}/zsh"
 export ZSH_HOME="${XDG_CONFIG_HOME}/zsh"
+export ZSH_COMPLETIONS_HOME="${ZSH_HOME}/completions"
 
-mkdir -p ${ZSH_HOME} ${ZSH_CACHE_HOME}
+mkdir -p ${ZSH_HOME} ${ZSH_CACHE_HOME} ${ZSH_COMPLETIONS_HOME}
 
 source ${ZSH_HOME}/functions.zsh
 
 source ${ZSH_HOME}/configs/core.zsh
 source ${ZSH_HOME}/configs/general.zsh
 source ${ZSH_HOME}/configs/zinit.zsh
+source ${ZSH_HOME}/configs/completion.zsh
 
 # Local configuration
 if [[ -f "${HOME}/.zshrc.local" ]]; then
