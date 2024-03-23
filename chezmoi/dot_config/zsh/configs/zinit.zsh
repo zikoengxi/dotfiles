@@ -98,7 +98,7 @@ zinit light jesseduffield/lazygit
 # Rclone
 # =========================================================== #
 
-zinit ice wait lucid as'program' from'gh-r' bpick'rclone*' mv'rclone* -> rclone' \
+zinit ice wait lucid as'program' from'gh-r' bpick'rclone*.zip' mv'rclone* -> rclone' \
   atclone'./rclone/rclone completion zsh - > _rclone' atpull'%atclone' pick'rclone/rclone'
 zinit light rclone/rclone
 
