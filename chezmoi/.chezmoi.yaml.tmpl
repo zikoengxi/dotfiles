@@ -6,21 +6,16 @@
 {{-   $email = promptString "What is your email address" $email }}
 {{- end -}}
 
-{{- $isMe := eq .chezmoi.username $name }}
 {{- $enableGitSigning := false }}
 {{- $gitSigningKey := (joinPath $.chezmoi.homeDir ".ssh/id_git.pub") }}
-{{- if and $isMe ($gitSigningKey | lstat | not | not) | }}
+{{- if and (eq .chezmoi.username $name) ($gitSigningKey | lstat | not | not) | }}
 {{-   $enableGitSigning = true }}
 {{- end -}}
 
 data:
-  os:
-    is_macos: {{ eq .chezmoi.os "darwin" }}
-
   user:
     name: {{ $name | quote }}
     email: {{ $email | quote }}
-    is_me: {{ $isMe }}
 
   git:
     signing:
