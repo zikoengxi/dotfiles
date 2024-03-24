@@ -4,6 +4,14 @@
 # -u: exit on unset variables
 set -eu
 
+if [[ $OSTYPE = darwin* ]]; then
+  # Install Xcode Command Line Tools
+  if [[ ! -d $(xcode-select -p) ]]; then
+    echo "Installing Xcode Command Line Tools..."
+    xcode-select --install
+  fi
+fi
+
 if ! chezmoi="$(command -v chezmoi)"; then
   bin_dir="${HOME}/.local/bin"
   chezmoi="${bin_dir}/chezmoi"
@@ -23,7 +31,13 @@ fi
 # POSIX way to get script's dir: https://stackoverflow.com/a/29834779/12156188
 script_dir="$(cd -P -- "$(dirname -- "$(command -v -- "$0")")" && pwd -P)"
 
-set -- init --apply --source="${script_dir}" "$@"
+set -- init "$@"
+
+if [ -n "${DOTFILES_REMOTE-}" ]; then
+  set -- "$@" --apply zikoengxi
+else
+  set -- "$@" --apply --source="${script_dir}"
+fi
 
 if [ -n "${DOTFILES_DEBUG-}" ]; then
   set -- "$@" --debug

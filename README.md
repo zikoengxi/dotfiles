@@ -12,31 +12,26 @@ By managing my dotfiles, I can easily set up a new development environment on an
 
 - Support multiple OS: macOS, Debian, Ubuntu.
 - Package Manager: Homebrew(macOS), Apt(Debian/Ubuntu).
-- Shell: Zsh
+- Shell: Zsh, Zinit(zsh plugin manager).
+- asdf: The Multiple Runtime Version Manager.
+  - Python
+  - NodeJS
+  - Golang
 
-## Prerequisites
+## Getting started
 
-Make sure you have installed all of the following prerequisites on your machine:
-
-- curl
-- git
-- make
-
-### macOS
-
-Install Xcode Command Line Tools:
+First installation you can use the [script](./install.sh) to install the dotfiles on your machine with a single command. Run the following command in your terminal:
 
 ```shell
-xcode-select --install
-```
+# Include debug information in output
+DOTFILES_DEBUG=1
+# Enable `prompt*` functions
+DOTFILES_PROMPT=1
 
-### Debian/Ubuntu
-
-Install packages:
-
-```shell
-sudo apt update
-sudo apt install -y curl git make
+# Install remotely by curl
+DOTFILES_REMOTE=1 sh -c "$(curl -fsSL https://raw.githubusercontent.com/zikoengxi/dotfiles/main/install.sh)"
+# Install remotely by wget
+DOTFILES_REMOTE=1 sh -c "$(wget -qO- https://raw.githubusercontent.com/zikoengxi/dotfiles/main/install.sh)"
 ```
 
 ## LICENSE
