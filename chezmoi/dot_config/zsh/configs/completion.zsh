@@ -18,6 +18,9 @@ zinit ice wait'1' lucid as'program' id-as'zsh-completions' \
       command_exists $cmd && $cmd --print-completion zsh > ${ZSH_COMPLETIONS_HOME}/_$cmd || true
     done
 
+    # docker
+    command_exists docker && docker completion zsh > ${ZSH_COMPLETIONS_HOME}/_docker || true
+
     cp -f ${ZSH_COMPLETIONS_HOME}/* ./completions/
     zinit creinstall -q .
   ' run-atpull atpull'%atclone'

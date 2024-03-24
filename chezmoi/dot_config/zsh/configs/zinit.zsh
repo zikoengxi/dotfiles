@@ -180,3 +180,44 @@ zinit wait lucid for \
     OMZP::poetry-env \
     OMZP::python \
     OMZP::npm
+
+# pulumi
+# =========================================================== #
+
+zinit ice lucid as'program' from'gh-r' bpick'pulumi*' \
+  atclone'./pulumi/pulumi gen-completion zsh > _pulumi' atpull'%atclone' pick'pulumi/*'
+zinit light pulumi/pulumi
+
+# docker
+# =========================================================== #
+
+zstyle ':completion:*:*:docker:*' option-stacking yes
+zstyle ':completion:*:*:docker-*:*' option-stacking yes
+
+# docker-compose
+zinit ice wait lucid as'program' from'gh-r' bpick'docker-compose*' \
+  mv'docker-compose* -> docker-compose'
+zinit light docker/compose
+
+zinit ice wait lucid
+zinit snippet OMZP::docker-compose/_docker-compose
+
+# lazydocker
+zinit ice wait lucid nocompletions as'program' from'gh-r' bpick'lazydocker*' pick'lazydocker'
+zinit light jesseduffield/lazydocker
+
+# k8s
+# =========================================================== #
+
+# kubectl
+zplugin ice wait lucid as'program' id-as'kubernetes-kubectl' atclone'
+    curl -L https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/$(uname | tr "[:upper:]" "[:lower:]")/$(uname -m)/kubectl -o ./kubectl
+    chmod +x ./kubectl
+    ./kubectl completion zsh > _kubectl
+    zinit creinstall -q .
+  ' run-atpull atpull'%atclone' pick'kubectl'
+zinit light zdharma-continuum/null
+
+# k9s
+zinit ice wait lucid nocompletions as'program' from'gh-r' bpick'k9s*' pick'k9s'
+zinit light derailed/k9s
