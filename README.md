@@ -24,14 +24,14 @@ First installation you can use the [script](./install.sh) to install the dotfile
 
 ```shell
 # Include debug information in output
-DOTFILES_DEBUG=1
+export DOTFILES_DEBUG=1
 # Enable `prompt*` functions
-DOTFILES_PROMPT=1
+export DOTFILES_PROMPT=1
 
 # Install remotely by curl
-DOTFILES_REMOTE=1 sh -c "$(curl -fsSL https://raw.githubusercontent.com/zikoengxi/dotfiles/main/install.sh)"
+DOTFILES_REMOTE=1 bash -c "$(curl -fsSL https://raw.githubusercontent.com/zikoengxi/dotfiles/main/install.sh)"
 # Install remotely by wget
-DOTFILES_REMOTE=1 sh -c "$(wget -qO- https://raw.githubusercontent.com/zikoengxi/dotfiles/main/install.sh)"
+DOTFILES_REMOTE=1 bash -c "$(wget -qO- https://raw.githubusercontent.com/zikoengxi/dotfiles/main/install.sh)"
 ```
 
 ## LICENSE
